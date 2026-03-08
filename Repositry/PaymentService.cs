@@ -1,7 +1,5 @@
 ﻿namespace KeyedServiceExample_With_DI.Repositry
 {
-
-
     public enum PaymentOption
     {
         CreditCard,
@@ -14,8 +12,6 @@
         void Paid();
         PaymentOption PaymentOption { get; }
     }
-
-
     public class CreditCard : IPaymentService
     {
         public PaymentOption PaymentOption => PaymentOption.CreditCard;
@@ -25,7 +21,6 @@
             Console.WriteLine($"Payment Typeof : {PaymentOption}");
         }
     }
-
     public class DebitCard : IPaymentService
     {
         public PaymentOption PaymentOption => PaymentOption.Debitcard;
@@ -35,7 +30,6 @@
             Console.WriteLine($"Payment Typeof : {PaymentOption}");
         }
     }
-
     public interface IPaymentFactory
     {
         IPaymentService paymentservice(PaymentOption paymentOption);
@@ -53,5 +47,4 @@
             return findtype ?? throw new NotImplementedException($"Payment type of {paymentOption} is not Found");
         }
     }
-
 }
