@@ -7,7 +7,7 @@ namespace KeyedServiceExample_With_DI.Presentation
     {
         public void MapEndPoint(IEndpointRouteBuilder app)
         {
-            app.MapGet("/Creditcard", async ([FromKeyedServices("PaymentSystem")] IPaymentFactory PaymentFactory) =>
+            app.MapGet("/Creditcard", async ([FromKeyedServices(Paymentsystems.SelectedPayment)] IPaymentFactory PaymentFactory) =>
             {
                 PaymentFactory.paymentservice(PaymentOption.CreditCard);
                 Console.WriteLine($"Credit-Card service");

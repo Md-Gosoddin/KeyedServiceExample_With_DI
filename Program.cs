@@ -6,7 +6,7 @@ WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddScoped<IPaymentService, CreditCard>();
 builder.Services.AddScoped<IPaymentService, DebitCard>();
-builder.Services.AddKeyedScoped<IPaymentFactory, PaymentFactory>("PaymentSystem");
+builder.Services.AddKeyedScoped<IPaymentFactory, PaymentFactory>(Paymentsystems.SelectedPayment);
 
 
 var app = builder.Build();
