@@ -4,8 +4,10 @@ using KeyedServiceExample_With_DI.Repositry;
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddKeyedScoped<IPaymentService, CreditCard>("CreditCard");
-builder.Services.AddKeyedScoped<IPaymentService, DebitCard>("DebitCard");
+builder.Services.AddScoped<IPaymentService, CreditCard>();
+builder.Services.AddScoped<IPaymentService, DebitCard>();
+builder.Services.AddKeyedScoped<IPaymentFactory, PaymentFactory>("PaymentSystem");
+
 
 var app = builder.Build();
 
