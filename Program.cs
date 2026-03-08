@@ -1,7 +1,10 @@
 using KeyedServiceExample_With_DI.MiddleWare;
+using KeyedServiceExample_With_DI.Model;
 using KeyedServiceExample_With_DI.Repositry;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
+
+builder.Services.Configure<ConfigPayment>(builder.Configuration.GetSection("PaymentSettings"));
 
 // Add services to the container.
 builder.Services.AddScoped<IPaymentService, CreditCard>();
